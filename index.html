@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Helllo World</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.min.js"></script>
+  </head>
+  <body>
+    <p>Helllo World file</p>
+    <script>
+      var socket = io();
+      // socket.on("message", (data) => {
+      //   document.write(data);
+      // });
+      // socket.on("myCustom event", (data) => {
+      //   document.write(data.description);
+      // });
+      // socket.emit(
+      //   "myCustomEventFromFrontend", // emit used to create event
+      //   "A custom msg from client side"
+      // );
+      socket.on("newUserConnect", (data) => {
+        document.body.innerHTML = "";
+        document.write(data.message);
+      });
+      socket.on("chatapp", (data) => {
+        document.write(data);
+      });
+    </script>
+  </body>
+</html>
